@@ -4,6 +4,8 @@ Simple no frills code sample to demonstrate exporting large DataTable to a comma
 
 The focus in the code sample is Partitioning DataRows, see notes below.
 
+![screen](assets/A1.png)
+
 ### Requires
 
 - To run this code sample **as is** [Microsoft Visual Studio 2019](https://visualstudio.microsoft.com/vs/) is required. If using for instance Visual Studio 2017 simply copy the files into a new Visual Studio solution and build/run.
