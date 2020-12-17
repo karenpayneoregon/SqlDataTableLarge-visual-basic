@@ -46,7 +46,11 @@ Public Class Operations
     ''' <param name="dataTable">Populated DataTable</param>
     ''' <param name="ct">Fresh CancellationToken</param>
     ''' <returns>Nothing</returns>
-    Public Shared Async Function Export(dataTable As DataTable, ct As CancellationToken) As Task
+    Public Shared Async Function Export(dataTable As DataTable, ct As CancellationToken, Optional fileName As String = "Exported.csv") As Task
+
+        If File.Exists(fileName) Then
+            File.Delete(fileName)
+        End If
 
         Await Task.Run(
             Async Function()
@@ -75,7 +79,7 @@ Public Class Operations
 
                 Next
 
-                File.AppendAllText("Exported.csv", sb.ToString())
+                File.AppendAllText(fileName, sb.ToString())
 
             End Function)
 

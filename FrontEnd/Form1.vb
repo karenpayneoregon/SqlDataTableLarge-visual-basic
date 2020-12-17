@@ -31,6 +31,12 @@ Public Class Form1
             Exit Sub
         End If
 
+        If _cts.IsCancellationRequested = True Then
+            _cts.Dispose()
+            _cts = New CancellationTokenSource()
+        End If
+
+
         CancelButton.Enabled = True
         StatusLabel.Visible = True
 
