@@ -42,6 +42,8 @@ Public Class Form1
 
         Await Task.Delay(1)
 
+        Operations.PartitionSize = 500
+
         Try
             Await Operations.Export(dataTable, _cts.Token)
             MessageBox.Show("Done")

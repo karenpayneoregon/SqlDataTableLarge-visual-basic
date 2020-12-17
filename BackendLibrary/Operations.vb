@@ -11,6 +11,7 @@ Public Class Operations
     ''' Callback for subscribers to see what is being worked on
     ''' </summary>
     Public Shared Event OnProcessingEvent As OnProcess
+    Public Shared Property PartitionSize() As Integer = 100
 
     Private Shared ConnectionString As String =
                 "Data Source=.\SQLEXPRESS;" &
@@ -57,7 +58,7 @@ Public Class Operations
 
                 Dim sb As New StringBuilder
 
-                Dim partitions As List(Of IEnumerable(Of DataRow)) = dataTable.Partition(500).ToList()
+                Dim partitions As List(Of IEnumerable(Of DataRow)) = dataTable.Partition(PartitionSize).ToList()
 
                 Dim partitionCount = partitions.Count
                 Dim index As Integer = 1
